@@ -1,0 +1,10 @@
+@import "reset";
+@import "mixin";
+@import "fonts";
+@import "typography";
+
+body {
+  font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+  color: #111;
+}

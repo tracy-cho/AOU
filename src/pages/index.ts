@@ -1,0 +1,7 @@
+export * from './Main.page'
+export * from './Member.page'
+export * from './Notice.page'
+export * from './Qna.page'
+export * from './System.page'
+export * from './World.page'
+export * from './Error.page'
