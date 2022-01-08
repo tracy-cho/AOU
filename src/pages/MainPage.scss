@@ -1,3 +1,59 @@
-.MainPage{
-    
+.MainPage {
+  display: grid;
+  grid-template-areas: "time time time" "date twitter banner";
+  gap: 42px 0;
+
+  .timer {
+    grid-area: time;
+    width: 840px;
+    height: 141px;
+    background-color: rgba(#06103d, 0.5);
+  }
+
+  .date-box {
+    grid-area: date;
+  }
+
+  .twitter {
+    grid-area: twitter;
+    background-color: rgba(#06103d, 0.5);
+    transform: translateY(-42px);
+  }
+
+  .banner {
+    grid-area: banner;
+    transform: translateY(42px);
+  }
+
+  .Box {
+    opacity: 0.8;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding-top: 15px;
+
+    > img {
+      margin-top: -15px;
+    }
+
+    .bottom {
+      margin-bottom: -15px;
+    }
+
+    .body {
+      margin: 24px auto;
+    }
+  }
+
+  .bg {
+    background-color: rgba(17, 17, 17, 0.5);
+
+    .date {
+      max-width: 250px;
+    }
+  }
+
+  .twitter > .body {
+    margin: 0;
+  }
 }

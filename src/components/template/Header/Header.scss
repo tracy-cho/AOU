@@ -1,3 +1,107 @@
-.Header{
-    
+.Header {
+  z-index: 10;
+  position: absolute;
+
+  top: 50%;
+  left: 1em;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .Logo {
+    opacity: 0.8;
+    position: absolute;
+    top: 90px;
+    left: -40px;
+    zoom: 60%;
+  }
+
+  .menu {
+    z-index: 2;
+    display: grid;
+    gap: 50px;
+
+    img {
+      opacity: 85%;
+      height: 24px;
+      width: auto;
+    }
+
+    a {
+      position: relative;
+      display: grid;
+
+      img {
+        position: absolute;
+        opacity:1;
+      }
+
+      .back-line {
+        opacity: 0;
+        left: -3px;
+        top: -1px;
+        height: 27px;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover {
+        opacity: 1;
+        .back-line {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  .line {
+    z-index: 1;
+    margin-left: 100px;
+
+    .cursor {
+      position: absolute;
+      width: 1740px;
+      height: 35px;
+      right: 35px;
+      top:50%;
+      transform: translateY(-50%) rotateZ(0deg);
+      transform-origin: center;
+      display: flex;
+      img {
+        height: 100%;
+        width: auto;
+        margin-left: auto;
+      }
+      transition: all 0.5s ease-in-out;
+
+      &._0 {
+        transform:  rotateZ(-12deg);
+      }
+
+      &._1 {
+        transform: rotateZ(-7.5deg);
+      }
+
+      &._2 {
+        transform:  rotateZ(-4deg);
+      }
+
+      &._3 {
+        transform:  rotateZ(-0.5deg);
+      }
+
+      &._4 {
+        transform:  rotateZ(3deg);
+      }
+
+      &._5 {
+        transform:  rotateZ(6.5deg);
+      }
+    }
+
+    img {
+      margin-left: -50px;
+      //max-height: 430px;
+    }
+  }
 }

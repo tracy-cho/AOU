@@ -6,5 +6,23 @@
 body {
   font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo",
     "Malgun Gothic", sans-serif;
-  color: #111;
+  color: #fff;
+}
+
+#root {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  max-width: 1220px;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  max-width: 840px;
+  position: absolute;
+  z-index: 2;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
 }
