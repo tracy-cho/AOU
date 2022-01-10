@@ -177,6 +177,5 @@ hr {
 }
 
 body {
-  //for firefox
-  scrollbar-width: none;
+  overflow-y: auto;
 }
