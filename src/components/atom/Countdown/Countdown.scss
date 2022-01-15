@@ -1,0 +1,15 @@
+@import "src/style/mixin";
+
+.Countdown {
+    span + span {
+        margin-left: 1rem
+    }
+}
+
+@include mobile {
+    .Countdown {
+        span + span {
+            margin-left: 0;
+        }
+    }
+}

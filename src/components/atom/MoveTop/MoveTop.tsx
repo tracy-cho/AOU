@@ -1,8 +1,11 @@
 import React from "react";
 
 import "./MoveTop.scss";
+import { useLocation } from "react-router-dom";
 
 export const MoveTop = () => {
+  const location = useLocation();
+  if (location.pathname === "/") return null;
   return (
     <img
       className={"MoveTop"}

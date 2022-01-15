@@ -57,7 +57,7 @@ export const Star: React.FC<StarProps> = ({ cx }) => {
 
       moveStars(elapsed * 0.1);
 
-      c!.fillStyle = "black";
+      c!.fillStyle = "#111";
       c!.fillRect(0, 0, width, height);
 
       const cx = width / 2;

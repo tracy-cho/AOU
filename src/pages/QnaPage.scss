@@ -1,3 +1,81 @@
-.QnaPage{
-    
+@import "src/style/mixin";
+
+.QnaPage {
+  max-width: 820px;
+  width: calc(100% - 2em);
+
+  section.Logo {
+    display: grid;
+    place-items: center;
+
+    img {
+      width: 300px;
+      height: auto;
+    }
+  }
+
+  .title {
+    h1 {
+      font-size: 14 * 3;
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 0.5em;
+    }
+  }
+
+  .desc {
+    text-align: center;
+    margin: 1em auto;
+    font-weight: 200;
+    line-height: 1.2;
+  }
+
+  .qna-wrapper {
+    + .qna-wrapper {
+      margin-top: 20px;
+    }
+
+    .qna-title {
+      opacity: 0.8;
+      background-color: purple;
+      padding: 0.8em;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-left: 2em;
+      margin-top: 1em;
+
+      li {
+        opacity: 0.8;
+        background-color: #282c34;
+        padding: 1em;
+
+        + li {
+          margin-top: 1em;
+        }
+
+        .answer {
+          margin-left: 1em;
+        }
+      }
+    }
+  }
+  a {
+    text-shadow: 1px 1px 2px magenta, -1px -1px 2px cyan, 0 0 2px yellow;
+    font-weight: 900;
+    font-style: italic;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@include mobile {
+  .qna-title {
+    padding: 0.8em !important;
+    font-size: 16px !important;
+  }
 }

@@ -1,6 +1,11 @@
+@import "src/style/mixin";
 .Box {
   max-width: 270px;
   .bottom {
     transform: rotateZ(180deg);
+  }
+
+  @include mobile{
+    max-width: 100%;
   }
 }

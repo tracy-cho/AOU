@@ -9,3 +9,10 @@ export const currentMenu = atom({
   key: "menu/current",
   default: 0,
 });
+
+export const showModal = atom({
+  key: "Modal",
+  default: {
+    date: false,
+  },
+});
