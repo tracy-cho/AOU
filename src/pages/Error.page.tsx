@@ -8,8 +8,13 @@ export type ErrorPageProps = {
 
 export const ErrorPage: React.FC < ErrorPageProps > = ({cx = ""}) => {
     return (
-        <div className={`ErrorPage ${cx}`}>
-            404 not founded
-        </div>
+        <main className={`ErrorPage ${cx}`}>
+            <div className="wrapper">
+                <img src={`${process.env.PUBLIC_URL}/loading.gif`} alt=""/>
+                <br/>
+                <br/>
+                <p>추후 공개됩니다.</p>
+            </div>
+        </main>
     );
 };

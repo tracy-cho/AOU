@@ -79,7 +79,7 @@
   }
 
   .Box {
-    opacity: 0.8;
+    opacity: 0.9;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
@@ -110,10 +110,10 @@
   .banner,
   .date-box {
     background-color: rgba(17, 17, 17, 0.2);
-    background-image: linear-gradient(rgba(white, 0.2) 0.8px, transparent 0.8px),
+    background-image: linear-gradient(rgba(white, 0.1) 0.8px, transparent 0.8px),
       linear-gradient(
         to right,
-        rgba(white, 0.2) 0.8px,
+        rgba(white, 0.1) 0.8px,
         rgba(17, 17, 17, 0.2) 0.8px
       );
     background-size: 8px 16px;
@@ -141,9 +141,9 @@
 
   .showRunning{
     position: absolute;
-    bottom: 0;
+    bottom: 1em;
     right: 10px;
-    font-size: 0.8em;
+    font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
     &:hover{
@@ -162,7 +162,9 @@
     grid-template-rows: 100px 230px;
     padding-bottom: 2em;
     height: 330px;
-
+    .showRunning{
+      bottom: 0.5em;
+    }
     .twitter {
       display: none;
     }
@@ -195,7 +197,7 @@
           line-height: 1;
 
           .Countdown {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             display: grid;
             grid-template-columns: 2fr 3fr;
 

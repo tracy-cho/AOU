@@ -7,5 +7,5 @@ export type TextBoxProps = {
 };
 
 export const TextBox: React.FC<TextBoxProps> = ({ cx = "", children }) => {
-  return <div className={`TextBox ${cx}`}>{children}</div>;
+  return <article className={`TextBox ${cx}`}>{children}</article>;
 };

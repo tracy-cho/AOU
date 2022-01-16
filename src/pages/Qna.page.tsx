@@ -51,7 +51,7 @@ export const QnaPage: React.FC<QnaPageProps> = ({ cx = "" }) => {
       </div>
       {Object.keys(contents).map((i) => (
         <div className={"qna-wrapper"} key={i}>
-          <div className="qna-title">{i}</div>
+          <div className="qna-title"><div className="title">{i}</div></div>
           <ul>
             {contents[i].map((j: any, jdx: number) => (
               <li key={i+jdx}>

@@ -37,10 +37,16 @@
 
     .qna-title {
       opacity: 0.8;
-      background-color: purple;
-      padding: 0.8em;
+      background-color: #2b2b9e;
+      background-image:  linear-gradient(rgba(white,0.2) 1px, transparent 1px), linear-gradient(to right, rgba(white,0.2)  1px, transparent 1px);
+      background-size: 15px 8px;
+
       font-size: 24px;
       font-weight: bold;
+      .title{
+        background-image:  linear-gradient(to right, transparent 0%, #111 70%, #111 100%);
+        padding: 0.8em;
+      }
     }
 
     ul {
@@ -49,7 +55,7 @@
 
       li {
         opacity: 0.8;
-        background-color: #282c34;
+        background-color: #1a1a1a;
         padding: 1em;
 
         + li {
@@ -75,7 +81,9 @@
 
 @include mobile {
   .qna-title {
-    padding: 0.8em !important;
-    font-size: 16px !important;
+   .title{
+     padding: 0.8em !important;
+     font-size: 16px !important;
+   }
   }
 }

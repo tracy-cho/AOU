@@ -22,7 +22,6 @@ export const Calendar: React.FC<CalendarProps> = ({
   cx = "",
   isDiary = false,
 }) => {
-  // mood : 🥳🥰😊😄🙂🙁😫😭😡🤬
   const diaries = useRecoilValue<any>(diaryContent);
   const getStartDay = (year: number, month: number): number =>
     new Date(`${year}-${month < 10 ? "0" : ""}${month}-01`).getDay();
@@ -143,18 +142,23 @@ export const Calendar: React.FC<CalendarProps> = ({
           >
             <span>{idx + 1}</span>
             {!!diaries[d] &&
-              diaries[d].content.map((j: string, jdx: number) => (
-                <div
-                  className={`sm con${jdx}`}
-                  style={{
-                    backgroundColor: !!diaries[d].color
-                      ? diaries[d].color[jdx] ?? "cyan"
-                      : "rgba(magenta,0.2)",
-                  }}
-                >
-                 <span>{j}</span>
-                </div>
-              ))}
+              diaries[d].content.map((j: string, jdx: number) =>
+                j!==null ? (
+                  <div
+                    className={`sm con${jdx}`}
+                    style={{
+                      backgroundColor: !!diaries[d].color
+                        ? `${diaries[d].color[jdx]}` ?? "cyan"
+                        : "rgba(magenta,0.2)",
+                    }}
+                    key={jdx + JSON.stringify(j)}
+                  >
+                    <span>{j}</span>
+                  </div>
+                ) : (
+                  <span className={"empty"}/>
+                )
+              )}
           </div>
         );
       })}

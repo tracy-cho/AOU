@@ -1,8 +1,8 @@
 .Modal {
-  background-color: rgba(#06103d, 0.2);
+  background-color: rgba(#111, 0.2);
   backdrop-filter: blur(4px);
   background-image: linear-gradient(rgba(white, 0.1) 0.8px, transparent 0.8px),
-    linear-gradient(to right, rgba(white, 0.1) 0.8px, rgba(#06103d, 0.5) 0.8px);
+    linear-gradient(to right, rgba(white, 0.1) 0.8px, rgba(#111, 0.5) 0.8px);
   background-size: 16px 16px;
   top: 50%;
   left: 50%;
@@ -13,7 +13,8 @@
   z-index: 999;
   width: calc(100vw - 2em);
   max-width: 700px;
-  height: 50vh;
+  height: 70vh;
+
 
   .contents{
     height: calc(100% - 5em);

@@ -2,7 +2,7 @@
   display: grid;
   place-content: center;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(7,1fr);
+  grid-template-rows: repeat(8, 1fr);
   height: 100%;
 
   div {
@@ -10,7 +10,11 @@
   }
 
   .arrow {
-    font-size: 0.8em;
+    font-size: 1em;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
     cursor: pointer;
   }
 
@@ -24,28 +28,35 @@
 
   .day {
     letter-spacing: -0.1em;
+
+    text-shadow: 1px 1px 2px magenta, -1px -1px 2px cyan, 0 0 2px yellow;
   }
 
   .date {
     width: 100%;
     height: 100%;
-    span{
+
+    span {
       display: grid;
       place-items: flex-end;
     }
-    .sm{
+
+    .sm {
       font-size: 0.7em;
-      height: 1.2rem;
+      min-height: 1.2rem;
       text-align: center;
       display: grid;
       place-items: center;
       width: 100%;
       background-color: white;
+
       //color:black;
-      span{
-        mix-blend-mode: difference;
+      span {
+        color: rgba(white,0.8);
+
       }
     }
+
     &:nth-child(7n + 2) {
       color: #7272ff;
     }
@@ -54,11 +65,10 @@
       color: #ff6666;
     }
 
+    &.true {
+      background-color: rgba(white, 0.2);
 
-    &.true{
-      background-color: rgba(white,0.2);
-      >span {
-
+      > span {
         text-shadow: 1px 1px 2px magenta, -1px -1px 2px cyan, 0 0 2px yellow;
         font-weight: 900;
       }
@@ -69,6 +79,7 @@
     cursor: pointer;
     text-shadow: 0 0 transparent;
     transition: text-shadow 0.2s ease-in-out;
+
     &:hover {
       text-shadow: 0 2px 5px var(--primary-color);
     }

@@ -1,3 +1,4 @@
+@import "src/style/mixin";
 .NoticePage {
   max-width: 820px;
   width: calc(100% - 2em);
@@ -9,5 +10,36 @@
       text-align: center;
       letter-spacing: 0.5em;
     }
+  }
+
+  table{
+    width: 100%;
+    th{
+      font-weight: bold;
+    }
+    th,td{
+      vertical-align: middle;
+      text-align: center;
+      border:1px solid white;
+      color:rgba(white,0.8);
+      background-color: rgba(white,0.2);
+      width: 20%;
+      padding: 1em;
+      word-break: keep-all;
+      font-size: 0.8em;
+    }
+    td.bb{
+      color:white;
+      font-weight: bold;
+      background-color: transparent!important;
+    }
+  }
+
+  @include mobile{
+   table{
+     th,td{
+       padding: 0.1em;
+     }
+   }
   }
 }

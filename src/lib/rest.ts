@@ -34,7 +34,7 @@ export const _post = async (url: string, data?: object) => {
         : JSON.parse(returnVal);
 };
 
-export const _get = async (url: string, data?: { [key: string]: any }) => {
+export const _get = async (url: string, data?: { [key: string]: any },config?:object) => {
     let param = "";
     if (!!data) {
         param = Object.keys(data)
@@ -44,7 +44,7 @@ export const _get = async (url: string, data?: { [key: string]: any }) => {
             )
             .slice(0, -1);
     }
-    return (await Axios.get(`${url}${param}`)).data;
+    return (await Axios.get(`${url}${param}`,config)).data;
 };
 
 export const _put = async (url: string, data?: { [key: string]: any }) => {

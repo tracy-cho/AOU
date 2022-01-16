@@ -1,5 +1,5 @@
 import { W1 } from "components/atom/world/W1";
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 
 import "./WorldPage.scss";
 import { W2 } from "../components/atom/world/W2";
@@ -13,6 +13,10 @@ export type WorldPageProps = {
 
 export const WorldPage: React.FC<WorldPageProps> = ({ cx = "" }) => {
   const [select, setSelect] = useState(0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <main className={`WorldPage ${cx}`}>
       <section className={"top-image"}>

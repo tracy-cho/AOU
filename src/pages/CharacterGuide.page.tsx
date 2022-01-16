@@ -1,8 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import "./CharacterGuidePage.scss";
 import { Logo } from "../components/atom/Logo";
-import { TextBox } from "../components/atom/TextBox";
 
 export type CharacterGuidePageProps = {
   cx?: string;
@@ -11,6 +10,9 @@ export type CharacterGuidePageProps = {
 export const CharacterGuidePage: React.FC<CharacterGuidePageProps> = ({
   cx = "",
 }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <main className={`CharacterGuidePage ${cx}`}>
       <section className="Logo">
@@ -184,7 +186,7 @@ export const CharacterGuidePage: React.FC<CharacterGuidePageProps> = ({
             </div>
           </div>
           <p className={"i"}>
-            그 외 문의사항은 총괄 계정{" "}
+            그 외 문의사항은 총괄 계정
             <a href="https://twitter.com/archofuniverse">@archofuniverse</a> 의
             DM으로만 접수받으며, 문의 중 개인 설정이 아닌 보편 설정에 대한 문의
             답변은 문의자의 동의를 받은 후 공개될 수 있습니다.

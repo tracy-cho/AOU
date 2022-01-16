@@ -1,5 +1,5 @@
 {
-  "base_url" : "https://opensheet.elk.sh/",
+  "base_url" : "https://docs.google.com/spreadsheets/d/",
   "sheetData": {
     "qna": {
       "id": "1FYmmENg5uVMhfZiB0SSLyz55DGCo42agszinwDdRlLU",

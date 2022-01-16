@@ -1,3 +1,15 @@
-.ErrorPage{
-    
+.ErrorPage {
+    display: flex;
+    height: calc(100% - 10em);
+
+    .wrapper {
+        margin: auto;
+        p{
+
+            text-shadow: 1px 1px 2px magenta, -1px -1px 2px cyan, 0 0 2px yellow;
+            font-size: 1.2em;
+            width: 100%;
+            text-align: center;
+        }
+    }
 }
