@@ -66,6 +66,11 @@ export const QnaPage: React.FC<QnaPageProps> = ({ cx = "" }) => {
           </ul>
         </div>
       ))}
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </main>
   );
 };
