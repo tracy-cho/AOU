@@ -58,14 +58,20 @@
         background-color: #1a1a1a;
         padding: 1em;
 
+
         + li {
           margin-top: 1em;
         }
-
+        .question{
+          white-space: pre-wrap;
+          font-weight: bold;
+          font-size: 1.2em;
+          line-height: 1.5;
+        }
         .answer {
+          line-height: 1.8;
           margin-left: 1em;
           white-space: pre-wrap;
-          line-height: 1.8;
         }
       }
     }

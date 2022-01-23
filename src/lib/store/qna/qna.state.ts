@@ -12,11 +12,13 @@ export const asyncGetQnaData = selector({
         "/*O_o*/\ngoogle.visualization.Query.setResponse(",
         ""
       );
-      const ret = JSON.parse(a.replace(");", ""));
-      return ret.table.rows.reduce((a: any[], c: any) => {
-        const da = { 분야: c.c[1].v, 질문: c.c[2].v, 답변: c.c[3].v };
-        return [...a, da];
-      }, []);
+      return JSON.parse(a.replace(");", "")).table.rows.reduce(
+        (a: any[], c: any) => [
+          ...a,
+          { 분야: c.c[1].v, 질문: c.c[2].v, 답변: c.c[3].v },
+        ],
+        []
+      );
     } catch (e) {
       console.log(e);
     }

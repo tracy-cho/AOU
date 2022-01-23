@@ -15,25 +15,29 @@ export type QnaPageProps = {
 const useQna = () => {
   const { state, contents } = useRecoilValueLoadable(asyncGetQnaData);
 
-  return {
-    state,
-    contents:
-      state !== "hasValue"
-        ? {}
-        : contents.reduce((a: any, c: { no: string; 분야: string }) => {
-            const cate = c.분야;
-            if (a.hasOwnProperty(cate)) {
-              a[cate] = [...a[cate], c];
-            } else {
-              a[cate] = [c];
-            }
-            return a;
-          }, {}),
-  };
+  try {
+    return {
+      state,
+      contents:
+        state !== "hasValue"
+          ? {}
+          : contents.reduce((a: any, c: { no: string; 분야: string }) => {
+              const cate = c.분야;
+              if (a.hasOwnProperty(cate)) {
+                a[cate] = [...a[cate], c];
+              } else {
+                a[cate] = [c];
+              }
+              return a;
+            }, {}),
+    };
+  } catch (e) {
+    return { state: "hasError", contents: null };
+  }
 };
 
 export const QnaPage: React.FC<QnaPageProps> = ({ cx = "" }) => {
-  const { contents } = useQna();
+  const { state, contents } = useQna();
 
   return (
     <main className={`QnaPage ${cx}`}>
@@ -43,34 +47,58 @@ export const QnaPage: React.FC<QnaPageProps> = ({ cx = "" }) => {
       <div className="title">
         <h1>QnA</h1>
         <h6 className="desc">
-          모든 질문은 총괄계  <a href="https://twitter.com/archofuniverse">@archofuniverse</a> DM으로 받으며, <br/> 본 페이지에서 공개하는것을
-          기본으로 합니다. <br /><br/>
-          캐릭터 비밀설정등의 이유로 공개를 원치 않으신다면<br/> DM질문시 비공개
-          요청을 해주시기 바랍니다.
+          모든 질문은 총괄계{" "}
+          <a href="https://twitter.com/archofuniverse">@archofuniverse</a>{" "}
+          DM으로 받으며, <br /> 본 페이지에서 공개하는것을 기본으로 합니다.{" "}
+          <br />
+          <br />
+          캐릭터 비밀설정등의 이유로 공개를 원치 않으신다면
+          <br /> DM질문시 비공개 요청을 해주시기 바랍니다.
         </h6>
       </div>
-      {Object.keys(contents).map((i) => (
-        <div className={"qna-wrapper"} key={i}>
-          <div className="qna-title"><div className="title">{i}</div></div>
-          <ul>
-            {contents[i].map((j: any, jdx: number) => (
-              <li key={i+jdx}>
+      {state === "hasError" ? (
+        <>
+          <div className={"qna-wrapper"}>
+            <div className="qna-title">
+              <div className="title">Error</div>
+            </div>
+            <ul>
+              <li>
                 <div className="question">
-                  Q{jdx + 1}. {j.질문}
-                </div><br/>
-                <div className="answer">
-                  A{jdx + 1}. {j.답변}
+                  데이터를 파싱해오는데 실패했습니다. 잠시 후 다시 새로고침 해
+                  주세요.
                 </div>
               </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+            </ul>
+          </div>
+        </>
+      ) : (
+        Object.keys(contents).map((i) => (
+          <div className={"qna-wrapper"} key={i}>
+            <div className="qna-title">
+              <div className="title">{i}</div>
+            </div>
+            <ul>
+              {contents[i].map((j: any, jdx: number) => (
+                <li key={i + jdx}>
+                  <div className="question">
+                    Q{jdx + 1}. {j.질문}
+                  </div>
+                  <br />
+                  <div className="answer">
+                    A{jdx + 1}. {j.답변}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      )}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </main>
   );
 };
