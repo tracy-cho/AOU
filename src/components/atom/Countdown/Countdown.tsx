@@ -8,7 +8,7 @@ export type CountdownProps = {
 
 export const Countdown: React.FC<CountdownProps> = ({ cx = "" }) => {
   const calculateTimeLeft = () => {
-    const difference = +new Date(`2022-01-26`) - +new Date();
+    const difference = +new Date(`2022-02-03 00:00:00`) - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {

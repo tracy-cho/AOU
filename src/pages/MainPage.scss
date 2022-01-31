@@ -150,6 +150,10 @@
       text-decoration: underline;
     }
   }
+
+  .date{
+    width: 100%;
+  }
 }
 
 @include mobile {

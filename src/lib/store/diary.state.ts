@@ -51,10 +51,6 @@ export const diaryContent = atom({
       color: ["rgba(255,255,30,0.4)"],
       content: [""],
     },
-    "2022-02-03": {
-      color: ["rgba(255,255,30,0.4)"],
-      content: [""],
-    },
     "2022-02-04": {
       color: ["rgba(255,255,30,0.4)"],
       content: ["합격자 발표"],
