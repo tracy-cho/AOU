@@ -1,0 +1,51 @@
+.MemberGutter{
+    width: 100%;
+    position: relative;
+    padding-bottom: 3em;
+    svg{
+        width: 100%;
+        image{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .text{
+        position: absolute;
+        top : 22px;
+        right: 50px;
+        font-size: 2.2em;
+        font-weight: bolder;
+        text-shadow:  0 0 10px black;
+    }
+
+    &.u {
+        .text:first-letter{
+            color: #ff0000;
+        }
+    }
+    &.d {
+        .text:first-letter{
+            color: #ff00ff;
+        }
+    }
+    &.r {
+        .text:first-letter{
+            color: #8393ca;
+        }
+    }
+    &.o {
+        .text:first-letter{
+            color: #ff5300;
+        }
+    }
+
+    &.l{
+        svg{
+            transform: rotateY(180deg);
+        }
+
+        .text{
+            left: 50px;
+        }
+    }
+}

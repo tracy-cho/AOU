@@ -11,3 +11,13 @@ export const getQna = async () =>
       },
     }
   );
+export const getMember = async () =>
+  await _get(
+    `/${v.sheetData.user.id}/gviz/tq?tqx=out:json&tq&gid=1257163176`,
+    {},
+    {
+      header: {
+        "X-DataSource-Auth": true,
+      },
+    }
+  );
