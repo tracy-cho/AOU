@@ -1,9 +1,9 @@
 @import "src/style/mixin";
 
 .Countdown {
-    span + span {
-        margin-left: 1rem
-    }
+    height: 100%;
+    display: grid;
+    place-items: center;
 }
 
 @include mobile {

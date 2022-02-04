@@ -46,7 +46,6 @@
                       rgba(#06103d, 0.5) 0.8px
         );
       background-size: 16px 16px;
-      grid-template-rows: 14px 1fr;
       >span{
         padding-left: 1em;
       }
@@ -202,8 +201,6 @@
 
           .Countdown {
             font-size: 0.9rem;
-            display: grid;
-            grid-template-columns: 2fr 3fr;
 
             span {
               text-align: right;

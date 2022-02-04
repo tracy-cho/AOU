@@ -86,7 +86,7 @@ export const MemberPage: React.FC<MemberPageProps> = ({ cx = "" }) => {
                       key={i + idx}
                       onClick={() => navigate(`/member/${encodeURIComponent(i)}`)}
                   >
-                    {i}
+                    {i==="에밀 블랑쇼" ?"실라스" :i}
                   </li>
               ))}
             </ul>
@@ -108,7 +108,7 @@ export const MemberPage: React.FC<MemberPageProps> = ({ cx = "" }) => {
                       key={i + idx}
                       onClick={() => navigate(`/member/${encodeURIComponent(i)}`)}
                   >
-                    {i}
+                    {i==="즈단 랴다릴로브" ?"교상리" :i}
                   </li>
               ))}
             </ul>

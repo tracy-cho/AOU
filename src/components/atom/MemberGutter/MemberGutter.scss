@@ -1,13 +1,22 @@
 .MemberGutter{
     width: 100%;
     position: relative;
-    padding-bottom: 3em;
+    padding-bottom: 5em;
     svg{
         width: 100%;
         image{
             width: 100%;
             height: auto;
         }
+    }
+
+    .image-wrapper{
+        padding: 2em;
+    }
+    img{
+        text-align: center;
+        width: inherit;
+        max-width: 100%;
     }
     .text{
         position: absolute;
