@@ -1,3 +1,5 @@
+@import "src/style/mixin";
+
 .MemberDetailPage{
     max-width: 820px;
     width: calc(100% - 2em);
@@ -22,6 +24,15 @@
         display: flex;
         align-items: center;
         gap: 20px;
+        svg{
+           width: 100px;
+            image{
+                width: 100%;
+            }
+        }
+        @include mobile{
+            gap: 5px;
+        }
     }
 
     section.mime{
@@ -120,6 +131,13 @@
                     color: transparent;
                     text-shadow: 0 0 8px white;
                 }
+                @include mobile{
+                    font-size: 1.2rem;
+                }
+            }
+
+            @include mobile{
+                line-height: 1.2;
             }
 
             .position{
@@ -194,6 +212,14 @@
             span::first-letter{
                 font-size: 1.8em;
             }
+
+            @include mobile{
+                font-size: 1.2rem;
+                word-break: keep-all;
+                text-align: center;
+                line-height: 1.2;
+                margin-bottom: 2em;
+            }
         }
 
         .info{
@@ -204,6 +230,11 @@
             justify-content: center;
             span{
                 margin: 0.5em 1em;
+                @include mobile{
+                    font-size: 0.8rem;
+                    margin: 0;
+                    word-break: keep-all;
+                }
             }
         }
 
@@ -227,6 +258,14 @@
                     font-weight: bold;
                 }
             }
+        }
+    }
+
+    .image-wrapper{
+        img{
+            width: auto;
+            max-width: 100%;
+            height: auto;
         }
     }
 

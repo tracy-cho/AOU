@@ -9,7 +9,7 @@ export type CountdownProps = {
 export const Countdown: React.FC<CountdownProps> = ({ cx = "" }) => {
   return (
     <div className={"Countdown"}>
-      H e l l o   A r c h i t e c t s !
+      Hello  Architects!
     </div>
   );
 };

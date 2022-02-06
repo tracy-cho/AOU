@@ -175,7 +175,7 @@ export const S2: React.FC<S2Props> = ({ cx = "" }) => {
             <tr>
               <td>체력</td>
               <td>50</td>
-              <td>5</td>
+              <td>10</td>
               <td>생명력, 동시에 마키나의 활력</td>
             </tr>
             <tr>
