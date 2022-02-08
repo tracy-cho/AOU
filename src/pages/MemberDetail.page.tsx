@@ -2,8 +2,12 @@ import React from "react";
 
 import "./MemberDetailPage.scss";
 import { useRecoilValueLoadable } from "recoil";
-import { asyncGetMemberList, memberType } from "../lib/store/qna";
-import { useLocation, useNavigate } from "react-router-dom";
+import {
+  asyncGetMemberList,
+  asyncGetRelative,
+  memberType,
+} from "../lib/store/qna";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MemberGutter } from "components/atom/MemberGutter";
 
 export type MemberDetailPageProps = {
@@ -11,14 +15,26 @@ export type MemberDetailPageProps = {
 };
 const useMember = (name: string) => {
   const { state, contents } = useRecoilValueLoadable(asyncGetMemberList);
-  if (state === "hasValue") {
-    return {
+  const relative = useRecoilValueLoadable(asyncGetRelative(name));
+  if (state === "hasValue" && relative.state === "hasValue") {
+    const a = {
       state,
-      contents: contents.find((i: memberType) => i.이름 === name),
+      contents: {
+        ...contents.find((i: memberType) => i.이름 === name),
+        관계: relative.contents?.desc.reduce((a: any, c: any, idx: number) => {
+          if (idx === 0 ) return a;
+          if (!!c) {
+            if(!c.v) return a;
+            a.push({ name: relative.contents?.nameList[idx].v, text: c.v });
+          }
+          return a;
+        }, []),
+      },
     };
-  } else {
-    return { state, contents: {} };
+    console.log(a);
+    return a;
   }
+  return { state: "hasError", contents: {} };
 };
 
 const type = (type: string) => {
@@ -46,6 +62,7 @@ export const MemberDetailPage: React.FC<MemberDetailPageProps> = ({
   );
 
   if (state !== "hasValue") return null;
+  console.log(state, contents);
   return (
     <main className={`MemberDetailPage ${cx}`}>
       <section className="Logo">
@@ -91,7 +108,9 @@ export const MemberDetailPage: React.FC<MemberDetailPageProps> = ({
               alt=""
             />
           </div>
-          <div className={`right ${contents.소속 === '람파다'}`}>{contents.이름}</div>
+          <div className={`right ${contents.소속 === "람파다"}`}>
+            {contents.이름}
+          </div>
         </div>
         <div className="catch">
           "<span>{contents.한마디}</span>"
@@ -160,7 +179,11 @@ export const MemberDetailPage: React.FC<MemberDetailPageProps> = ({
           {contents.이미지 && (
             <div className={"image-wrapper"}>
               {JSON.parse(contents.이미지).map((i: string) => (
-                <img src={`https://cdn.star-light.space/${i}.png`} key={i} alt="" />
+                <img
+                  src={`https://cdn.star-light.space/${i}.png`}
+                  key={i}
+                  alt=""
+                />
               ))}
             </div>
           )}
@@ -176,16 +199,14 @@ export const MemberDetailPage: React.FC<MemberDetailPageProps> = ({
           {contents.rp}
         </MemberGutter>
         <MemberGutter text={"관계"} cx={`${type(contents.계통)} l`}>
-          {contents.관계.map((i: string, idx: number) => (
-            <>
-              {!!i && (
-                <>
-                  <p key={idx}>{i}</p>
-                  {idx < 4 && <hr />}
-                </>
-              )}
-            </>
-          ))}
+          {contents.관계.map(
+            ({ name, text }: { name: string; text: string }) => (
+              <div className={'rel-wrapper'} key={name}>
+                <Link to={`/member/${encodeURIComponent(name)}`}>[{name}]</Link>
+                <p> {text}</p>
+              </div>
+            )
+          )}
         </MemberGutter>
       </section>
     </main>

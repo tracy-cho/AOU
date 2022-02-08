@@ -69,7 +69,7 @@ export const diaryContent = atom({
     },
     "2022-02-08": {
       color: ["rgba(236,8,199,0.5)", "rgba(236,8,19,0.5)"],
-      content: ["", "조사"],
+      content: ["", "스토리 진행"],
     },
     "2022-02-09": {
       color: ["rgba(236,8,199,0.5)"],
@@ -77,7 +77,7 @@ export const diaryContent = atom({
     },
     "2022-02-10": {
       color: ["rgba(236,8,199,0.5)", "rgba(236,8,19,0.5)"],
-      content: ["", "조사"],
+      content: ["", "스토리 진행"],
     },
     "2022-02-11": {
       color: ["rgba(236,8,199,0.5)"],
@@ -210,7 +210,7 @@ export const diaryContent = atom({
     },
     "2022-03-15": {
       color: ["rgba(236,8,199,0.5)", "rgba(236,8,19,0.5)"],
-      content: ["", "조사"],
+      content: ["", "스토리 진행"],
     },
     "2022-03-16": {
       color: ["rgba(236,8,199,0.5)"],
@@ -218,7 +218,7 @@ export const diaryContent = atom({
     },
     "2022-03-17": {
       color: ["rgba(236,8,199,0.5)", "rgba(236,8,19,0.5)"],
-      content: ["", "조사"],
+      content: ["", "스토리 진행"],
     },
     "2022-03-18": {
       color: ["rgba(236,8,199,0.5)"],
@@ -238,7 +238,7 @@ export const diaryContent = atom({
     },
     "2022-03-22": {
       color: ["rgba(236,8,199,0.5)", "rgba(236,8,19,0.5)"],
-      content: ["", "조사"],
+      content: ["", "스토리 진행"],
     },
     "2022-03-23": {
       color: ["rgba(236,8,199,0.5)"],
@@ -246,7 +246,7 @@ export const diaryContent = atom({
     },
     "2022-03-24": {
       color: ["rgba(236,8,199,0.5)", "rgba(236,8,19,0.5)"],
-      content: ["", "조사"],
+      content: ["", "스토리 진행"],
     },
     "2022-03-25": {
       color: ["rgba(236,8,199,0.5)"],
@@ -294,7 +294,7 @@ export const diaryContent = atom({
     },
     "2022-04-05": {
       color: ["rgba(255,102,0,0.5)", "rgba(236,8,19,0.5)"],
-      content: ["", "조사"],
+      content: ["", "스토리 진행"],
     },
     "2022-04-06": {
       color: ["rgba(255,102,0,0.5)"],
@@ -302,7 +302,7 @@ export const diaryContent = atom({
     },
     "2022-04-07": {
       color: ["rgba(255,102,0,0.5)", "rgba(236,8,19,0.5)"],
-      content: ["", "조사"],
+      content: ["", "스토리 진행"],
     },
     "2022-04-08": {
       color: ["rgba(255,102,0,0.5)"],
@@ -322,7 +322,7 @@ export const diaryContent = atom({
     },
     "2022-04-12": {
       color: ["rgba(255,102,0,0.5)", "rgba(236,8,19,0.5)"],
-      content: ["", "조사"],
+      content: ["", "스토리 진행"],
     },
     "2022-04-13": {
       color: ["rgba(255,102,0,0.5)"],
@@ -330,7 +330,7 @@ export const diaryContent = atom({
     },
     "2022-04-14": {
       color: ["rgba(255,102,0,0.5)", "rgba(236,8,19,0.5)"],
-      content: ["", "조사"],
+      content: ["", "스토리 진행"],
     },
     "2022-04-15": {
       color: ["rgba(255,102,0,0.5)"],

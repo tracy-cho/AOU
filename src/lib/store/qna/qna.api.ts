@@ -21,3 +21,13 @@ export const getMember = async () =>
       },
     }
   );
+export const getRelative = async () =>
+  await _get(
+    `/${v.sheetData.user.id}/gviz/tq?tqx=out:json&tq&gid=107300411`,
+    {},
+    {
+      header: {
+        "X-DataSource-Auth": true,
+      },
+    }
+  );

@@ -1,31 +1,31 @@
-import { selector } from "recoil";
-import { getMember, getQna } from "lib/store/qna";
+import { selector, selectorFamily } from "recoil";
+import { getMember, getQna, getRelative } from "lib/store/qna";
 import { updateAll } from "lib/store/common";
 
-export  type memberType = {
-  이름:string
-  계통:string
-  미메시스:string
-  체력:string
-  정신력:string
-  공격력:string
-  방어력:string
-  통찰:string
-  스킬:string[]
-  한마디:string
-  소속:string
-  나이:string
-  키:string
-  미메시스이름:string
-  미메시스설명:string
-  외형:string
-  이미지:string
-  성격:string
-  기타사항:string
-  rp:string
-  관계:string[]
-  성별:string
-}
+export type memberType = {
+  이름: string;
+  계통: string;
+  미메시스: string;
+  체력: string;
+  정신력: string;
+  공격력: string;
+  방어력: string;
+  통찰: string;
+  스킬: string[];
+  한마디: string;
+  소속: string;
+  나이: string;
+  키: string;
+  미메시스이름: string;
+  미메시스설명: string;
+  외형: string;
+  이미지: string;
+  성격: string;
+  기타사항: string;
+  rp: string;
+  관계: string[];
+  성별: string;
+};
 
 export const asyncGetQnaData = selector({
   key: "qna/get",
@@ -85,7 +85,7 @@ export const asyncGetMemberList = selector({
             기타사항: c.c[20]?.v,
             rp: c.c[21]?.v,
             성별: c.c[27]?.v,
-            관계: [c.c[22]?.v, c.c[23]?.v, c.c[24]?.v, c.c[25]?.v, c.c[26]?.v],
+            관계: [],
           },
         ],
         [] as memberType[]
@@ -94,4 +94,28 @@ export const asyncGetMemberList = selector({
       console.log(e);
     }
   },
+});
+
+export const asyncGetRelative = selectorFamily({
+  key: "relative/get",
+  get:
+    (name: string) =>
+    async ({ get }) => {
+      try {
+        get(updateAll);
+        const data = await getRelative();
+        const a = data.replace(
+          "/*O_o*/\ngoogle.visualization.Query.setResponse(",
+          ""
+        );
+        const table = JSON.parse(a.replace(");", "")).table;
+
+        return {
+          nameList: table.rows[0].c,
+          desc: table.rows.find((i: any) => i.c[0]?.v === name).c,
+        };
+      } catch (e) {
+        console.log(e);
+      }
+    },
 });
