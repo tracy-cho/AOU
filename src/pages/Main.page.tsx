@@ -60,8 +60,15 @@ export const MainPage: React.FC<MainPageProps> = ({ cx = "" }) => {
         />
       </Box>
       <Box cx={"bg banner"}>
-        <HomeBanner cx={"close"}>데이터베이스</HomeBanner>
-        <HomeBanner cx={"close"}>레이드 시트</HomeBanner>
+        <HomeBanner
+          onClick={() => {
+            window.open(
+              "https://docs.google.com/spreadsheets/d/1gFdy5T-KlsSeMCWtvKrGvuDvKZJhHb_wodRkt10mZfY/edit#gid=1965103680"
+            );
+          }}
+        >
+          학술정보시스템
+        </HomeBanner>
         <HomeBanner
           onClick={() => {
             window.open(
@@ -70,6 +77,24 @@ export const MainPage: React.FC<MainPageProps> = ({ cx = "" }) => {
           }}
         >
           스킬
+        </HomeBanner>
+        <HomeBanner
+          onClick={() =>
+            window.open(
+              "https://docs.google.com/document/d/1snSaNOxhQdDvWXIe9ihBUOU-70Z08dwqB8PXBFu5JdU/edit"
+            )
+          }
+        >
+          리뉴얼안내
+        </HomeBanner>
+        <HomeBanner
+          onClick={() =>
+            window.open(
+              "https://docs.google.com/document/d/17hlmoQDpupLhgksC4CMEiYlQuLMiTQz_K8YCxCMZm2M/edit"
+            )
+          }
+        >
+          성장프로필양식
         </HomeBanner>
         <HomeBanner cx={"close"}>상점</HomeBanner>
       </Box>

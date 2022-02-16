@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   CharacterGuidePage,
   MainPage,
+  MemberDetail1Page,
   MemberDetailPage,
   MemberPage,
   NoticePage,
@@ -25,6 +26,7 @@ const App = () => {
         <Route path={"/qna"} element={<QnaPage />} />
         <Route path={"/notice"} element={<NoticePage />} />
         <Route path={"/member"} element={<MemberPage />} />
+        <Route path={"/member-1/:name"} element={<MemberDetail1Page />} />
         <Route path={"/member/:name"} element={<MemberDetailPage />} />
         <Route path={"/system"} element={<SystemPage />} />
         <Route path={"/world"} element={<WorldPage />} />

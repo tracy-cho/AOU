@@ -5,9 +5,19 @@
       "id": "1FYmmENg5uVMhfZiB0SSLyz55DGCo42agszinwDdRlLU",
       "name": "data"
     },
-    "user": {
-      "id": "1PZ794q5zAaw7CCiDq8WMpjd7cZzAnV2-wCm_jTTVWZ8",
-      "name": "hp_data"
-    }
+    "user": [
+      {
+        "id": "1PZ794q5zAaw7CCiDq8WMpjd7cZzAnV2-wCm_jTTVWZ8",
+        "gid": "1257163176",
+        "relative": "107300411",
+        "name": "1부"
+      },
+      {
+        "id": "1PZ794q5zAaw7CCiDq8WMpjd7cZzAnV2-wCm_jTTVWZ8",
+        "gid": "263485090",
+        "relative": "1645688749",
+        "name": "2부"
+      }
+    ]
   }
 }

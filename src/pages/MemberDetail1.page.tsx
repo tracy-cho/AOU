@@ -7,18 +7,18 @@ import {
   asyncGetRelative,
   memberType,
 } from "../lib/store/qna";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MemberGutter } from "components/atom/MemberGutter";
 import { MemberTab } from "components/atom/MemberTab";
 
-export type MemberDetailPageProps = {
+export type MemberDetail1PageProps = {
   cx?: string;
 };
 const useMember = (name: string) => {
   const { state, contents } = useRecoilValueLoadable(
-    asyncGetMemberList({ page: 1 })
+    asyncGetMemberList({ page: 0 })
   );
-  const relative = useRecoilValueLoadable(asyncGetRelative({ name, page: 1 }));
+  const relative = useRecoilValueLoadable(asyncGetRelative({ name, page: 0 }));
   if (state === "hasValue" && relative.state === "hasValue") {
     const a = {
       state,
@@ -55,7 +55,7 @@ const type = (type: string) => {
   }
 };
 
-export const MemberDetailPage: React.FC<MemberDetailPageProps> = ({
+export const MemberDetail1Page: React.FC<MemberDetail1PageProps> = ({
   cx = "",
 }) => {
   const location = useLocation();
@@ -67,7 +67,7 @@ export const MemberDetailPage: React.FC<MemberDetailPageProps> = ({
   console.log(state, contents);
   return (
     <main className={`MemberDetailPage ${cx}`}>
-      <MemberTab page={1} name={contents.key_name}/>
+     <MemberTab page={0}  name={contents.key_name}/>
       <section className={`short-info ${type(contents.계통)}`}>
         <div className="name">
           <div className="left">{contents.미메시스이름}</div>
@@ -142,7 +142,7 @@ export const MemberDetailPage: React.FC<MemberDetailPageProps> = ({
           />
         </svg>
         {contents.스킬.map((i: string) => (
-          !!i?<span key={i}>&lt;{i}&gt;</span> : ""
+          <span key={i}>&lt;{i}&gt;</span>
         ))}
       </section>
 
@@ -181,12 +181,6 @@ export const MemberDetailPage: React.FC<MemberDetailPageProps> = ({
         </MemberGutter>{" "}
         <MemberGutter text={"기타사항"} cx={`${type(contents.계통)} l`}>
           {contents.기타사항}
-        </MemberGutter>{" "}
-        <MemberGutter text={"지난 몇 년간..."} cx={`${type(contents.계통)} l`}>
-          {contents.지난}
-        </MemberGutter>{" "}
-        <MemberGutter text={"마키나"} cx={`${type(contents.계통)} l`}>
-          {contents.마키나}
         </MemberGutter>
         <MemberGutter text={"오너 RP 성향"} cx={type(contents.계통)}>
           {contents.rp}

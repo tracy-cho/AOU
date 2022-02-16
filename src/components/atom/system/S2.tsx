@@ -274,7 +274,7 @@ export const S2: React.FC<S2Props> = ({ cx = "" }) => {
             </tr>
             <tr>
               <td>미메시스 대련</td>
-              <td>매주 1회 이상 진행할 경우 주어지는 퀘스트</td>
+              <td>매주 1회 이상 진행할 경우 지급</td>
               <td>스테이터스 포인트 +1</td>
             </tr>
             <tr>

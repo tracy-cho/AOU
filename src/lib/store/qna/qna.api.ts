@@ -11,9 +11,9 @@ export const getQna = async () =>
       },
     }
   );
-export const getMember = async () =>
+export const getMember = async ({ page = 0 }: { page: number }) =>
   await _get(
-    `/${v.sheetData.user.id}/gviz/tq?tqx=out:json&tq&gid=1257163176`,
+    `/${v.sheetData.user[page].id}/gviz/tq?tqx=out:json&tq&gid=${v.sheetData.user[page].gid}`,
     {},
     {
       header: {
@@ -21,9 +21,9 @@ export const getMember = async () =>
       },
     }
   );
-export const getRelative = async () =>
+export const getRelative = async ({ page = 0 }: { page: number }) =>
   await _get(
-    `/${v.sheetData.user.id}/gviz/tq?tqx=out:json&tq&gid=107300411`,
+    `/${v.sheetData.user[page].id}/gviz/tq?tqx=out:json&tq&gid=${v.sheetData.user[page].relative}`,
     {},
     {
       header: {
