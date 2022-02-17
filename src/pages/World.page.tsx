@@ -34,7 +34,7 @@ export const WorldPage: React.FC<WorldPageProps> = ({ cx = "" }) => {
           <h5>라토스 & 안티파시</h5>
         </div>
         <div className="tab t2" onClick={() => setSelect(2)}>
-          <h5>그노시스 & 솔리더타스</h5>
+          <h5>그노시스 & 솔리더리타스</h5>
         </div>
         <div className="tab t3" onClick={() => setSelect(3)}>
           <h5>인류연합</h5>

@@ -23,7 +23,7 @@ export type memberType = {
   성격: string;
   기타사항: string;
   rp: string;
-  key_name:string;
+  key_name: string;
   관계: string[];
   성별: string;
 };
@@ -75,7 +75,9 @@ export const asyncGetMemberList = selectorFamily({
               방어력: c.c[5]?.v,
               통찰: c.c[6]?.v,
               정신력: c.c[7]?.v,
-              스킬: [c.c[8]?.v, c.c[9]?.v, c.c[10]?.v, c.c[22]?.v].filter(i=>!!i),
+              스킬: [c.c[8]?.v, c.c[9]?.v, c.c[10]?.v, c.c[22]?.v].filter(
+                (i) => !!i
+              ),
               한마디: c.c[11]?.v,
               소속: c.c[12]?.v,
               나이: c.c[13]?.v,
@@ -107,6 +109,8 @@ export const asyncGetRelative = selectorFamily({
   get:
     ({ name, page }: { name: string; page: number }) =>
     async ({ get }) => {
+    console.log(name);
+      if (name === "") return;
       try {
         get(updateAll);
         const data = await getRelative({ page });
@@ -115,7 +119,6 @@ export const asyncGetRelative = selectorFamily({
           ""
         );
         const table = JSON.parse(a.replace(");", "")).table;
-        console.log(name);
         return {
           nameList: table.rows[0].c,
           desc: table.rows.find((i: any) => i.c[0]?.v === name).c,
