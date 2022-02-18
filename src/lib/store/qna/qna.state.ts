@@ -16,7 +16,7 @@ export type memberType = {
   소속: string;
   나이: string;
   키: string;
-  미메시스이름: string;
+  code_name: string;
   미메시스설명: string;
   외형: string;
   이미지: string;
@@ -82,7 +82,7 @@ export const asyncGetMemberList = selectorFamily({
               소속: c.c[12]?.v,
               나이: c.c[13]?.v,
               키: c.c[14]?.v,
-              미메시스이름: c.c[15]?.v,
+              code_name: c.c[15]?.v,
               미메시스설명: c.c[16]?.v,
               외형: c.c[17]?.v,
               이미지: c.c[18]?.v,

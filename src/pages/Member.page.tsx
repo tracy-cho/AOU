@@ -23,10 +23,12 @@ const useMember = () => {
           : contents.reduce(
               (
                 a: typeof returnVal,
-                c: { 이름: string; 계통: string; key_name: string }
+                c: { 이름: string; 계통: string; code_name : string; 소속:string; key_name: string }
               ) => {
                 //@ts-ignore
-                a[c.계통] = [...a[c.계통], { 이름: c.이름, key_name: c.key_name }];
+                a[c.계통] = [...a[c.계통],
+                  { 이름: c.이름, key_name: c.key_name, code_name :c.code_name,소속 : c.소속 },
+                ];
                 return a;
               },
               returnVal
@@ -86,14 +88,22 @@ export const MemberPage: React.FC<MemberPageProps> = ({ cx = "" }) => {
             <div className="bg u" />
             <ul className="name-list">
               {contents.운트라.map(
-                (i: { 이름: string; key_name: string }, idx: number) => (
+                (
+                  i: {
+                    이름: string;
+                    소속: string;
+                    code_name: string;
+                    key_name: string;
+                  },
+                  idx: number
+                ) => (
                   <li
                     key={i.key_name + idx}
                     onClick={() =>
                       navigate(`/member/${encodeURIComponent(i.key_name)}`)
                     }
                   >
-                    {i.이름}
+                    {i.소속 === "람파다" ? i.code_name : i.이름}
                   </li>
                 )
               )}
@@ -112,14 +122,22 @@ export const MemberPage: React.FC<MemberPageProps> = ({ cx = "" }) => {
             <div className="bg d" />
             <ul className="name-list">
               {contents.디솔루티.map(
-                (i: { 이름: string; key_name: string }, idx: number) => (
+                (
+                  i: {
+                    이름: string;
+                    소속: string;
+                    code_name: string;
+                    key_name: string;
+                  },
+                  idx: number
+                ) => (
                   <li
                     key={i.key_name + idx}
                     onClick={() =>
                       navigate(`/member/${encodeURIComponent(i.key_name)}`)
                     }
                   >
-                    {i.이름}
+                    {i.소속 === "람파다" ? i.code_name : i.이름}
                   </li>
                 )
               )}
@@ -138,14 +156,22 @@ export const MemberPage: React.FC<MemberPageProps> = ({ cx = "" }) => {
             <div className="bg r" />
             <ul className="name-list">
               {contents.레크레아티.map(
-                (i: { 이름: string; key_name: string }, idx: number) => (
+                (
+                  i: {
+                    이름: string;
+                    소속: string;
+                    code_name: string;
+                    key_name: string;
+                  },
+                  idx: number
+                ) => (
                   <li
                     key={i.key_name + idx}
                     onClick={() =>
                       navigate(`/member/${encodeURIComponent(i.key_name)}`)
                     }
                   >
-                    {i.이름}
+                    {i.소속 === "람파다" ? i.code_name : i.이름}
                   </li>
                 )
               )}
@@ -164,14 +190,22 @@ export const MemberPage: React.FC<MemberPageProps> = ({ cx = "" }) => {
             <div className="bg o" />
             <ul className="name-list">
               {contents.옵세르보.map(
-                (i: { 이름: string; key_name: string }, idx: number) => (
+                (
+                  i: {
+                    이름: string;
+                    소속: string;
+                    code_name: string;
+                    key_name: string;
+                  },
+                  idx: number
+                ) => (
                   <li
                     key={i.key_name + idx}
                     onClick={() =>
                       navigate(`/member/${encodeURIComponent(i.key_name)}`)
                     }
                   >
-                    {i.이름}
+                    {i.소속 === "람파다" ? i.code_name : i.이름}
                   </li>
                 )
               )}
