@@ -10,6 +10,7 @@ import {
   MemberPage,
   NoticePage,
   QnaPage,
+  ShopPage,
   SystemPage,
   WorldPage,
 } from "./pages";
@@ -30,6 +31,7 @@ const App = () => {
         <Route path={"/member/:name"} element={<MemberDetailPage />} />
         <Route path={"/system"} element={<SystemPage />} />
         <Route path={"/world"} element={<WorldPage />} />
+        <Route path={"/shop"} element={<ShopPage />} />
         <Route path={"/character/guide"} element={<CharacterGuidePage />} />
         <Route path={"*"} element={<MainPage />} />
       </Routes>

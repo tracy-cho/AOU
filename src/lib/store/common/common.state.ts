@@ -14,5 +14,6 @@ export const showModal = atom({
   key: "Modal",
   default: {
     date: false,
+    shopYN:false
   },
 });

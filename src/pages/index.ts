@@ -8,3 +8,4 @@ export * from "./Error.page";
 export * from "./CharacterGuide.page";
 export * from "./MemberDetail.page";
 export * from "./MemberDetail1.page";
+export * from "./Shop.page";
