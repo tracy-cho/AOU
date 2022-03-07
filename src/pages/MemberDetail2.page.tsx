@@ -11,12 +11,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MemberGutter } from "components/atom/MemberGutter";
 import { MemberTab } from "components/atom/MemberTab";
 
-export type MemberDetail1PageProps = {
+export type MemberDetail2PageProps = {
   cx?: string;
 };
 const useMember = (name: string) => {
   const { state, contents } = useRecoilValueLoadable(
-    asyncGetMemberList({ page: 0 })
+    asyncGetMemberList({ page: 2 })
   );
   const relative = useRecoilValueLoadable(asyncGetRelative({ name, page: 0 }));
   if (state === "hasValue" && relative.state === "hasValue") {
@@ -28,13 +28,18 @@ const useMember = (name: string) => {
           if (idx === 0) return a;
           if (!!c) {
             if (!c.v) return a;
-            a.push({ name: relative.contents?.nameList[idx].v, text: c.v });
+            a.push({
+              display_name: contents.find(
+                (i: memberType) => i.key_name === relative.contents?.nameList[idx].v
+              )?.code_name,
+              name: relative.contents?.nameList[idx].v,
+              text: c.v,
+            });
           }
           return a;
         }, []),
       },
     };
-    console.log(a);
     return a;
   }
   return { state: "hasError", contents: {} };
@@ -55,7 +60,7 @@ const type = (type: string) => {
   }
 };
 
-export const MemberDetail1Page: React.FC<MemberDetail1PageProps> = ({
+export const MemberDetail2Page: React.FC<MemberDetail2PageProps> = ({
   cx = "",
 }) => {
   const location = useLocation();
@@ -64,10 +69,9 @@ export const MemberDetail1Page: React.FC<MemberDetail1PageProps> = ({
   );
 
   if (state !== "hasValue") return null;
-  console.log(state, contents);
   return (
     <main className={`MemberDetailPage ${cx}`}>
-     <MemberTab page={0}  name={contents.key_name}/>
+      <MemberTab page={2} name={contents.key_name} />
       <section className={`short-info ${type(contents.계통)}`}>
         <div className="name">
           <div className="left">{contents.code_name}</div>
@@ -95,7 +99,7 @@ export const MemberDetail1Page: React.FC<MemberDetail1PageProps> = ({
               alt=""
             />
           </div>
-          <div className={`right ${contents.소속 === "람파다"}`}>
+          <div className={`right ${contents.소속 === "솔리더리타스"}`}>
             {contents.이름}
           </div>
         </div>
@@ -164,15 +168,15 @@ export const MemberDetail1Page: React.FC<MemberDetail1PageProps> = ({
       <section className="desc">
         <MemberGutter text={"외형"} cx={type(contents.계통)}>
           {contents.이미지 && (
-            <div className={"image-wrapper"}>
-              {JSON.parse(contents.이미지).map((i: string) => (
-                <img
-                  src={`https://cdn.star-light.space/${i}.png`}
-                  key={i}
-                  alt=""
-                />
-              ))}
-            </div>
+              <div className={"image-wrapper"}>
+                {JSON.parse(contents.이미지).map((i: string) => (
+                    <img
+                        src={`https://cdn.star-light.space/${i}.png`}
+                        key={i}
+                        alt=""
+                    />
+                ))}
+              </div>
           )}
           {contents.외형}
         </MemberGutter>{" "}
@@ -181,15 +185,42 @@ export const MemberDetail1Page: React.FC<MemberDetail1PageProps> = ({
         </MemberGutter>{" "}
         <MemberGutter text={"기타사항"} cx={`${type(contents.계통)} l`}>
           {contents.기타사항}
+        </MemberGutter>{" "}
+        <MemberGutter text={"지난 몇 년간..."} cx={`${type(contents.계통)} l`}>
+          {contents.지난}
+        </MemberGutter>{" "}
+        <MemberGutter text={"마키나"} cx={`${type(contents.계통)} l`}>
+          {contents.machina_image && (
+              <div className={"image-wrapper"}>
+                {JSON.parse(contents.machina_image).map((i: string) => (
+                    <img
+                        src={`https://cdn.star-light.space/${i}.png`}
+                        key={i}
+                        alt=""
+                    />
+                ))}
+              </div>
+          )}
+          {contents.마키나}
         </MemberGutter>
         <MemberGutter text={"오너 RP 성향"} cx={type(contents.계통)}>
           {contents.rp}
         </MemberGutter>
         <MemberGutter text={"관계"} cx={`${type(contents.계통)} l`}>
           {contents.관계.map(
-            ({ name, text }: { name: string; text: string }) => (
+            ({
+              name,
+              text,
+              display_name,
+            }: {
+              name: string;
+              display_name: string;
+              text: string;
+            }) => (
               <div className={"rel-wrapper"} key={name}>
-                <Link to={`/member-1/${encodeURIComponent(name)}`}>[{name}]</Link>
+                <Link to={`/member/${encodeURIComponent(name)}`}>
+                  [{display_name}]
+                </Link>
                 <p> {text}</p>
               </div>
             )

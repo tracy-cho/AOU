@@ -75,7 +75,7 @@ export const asyncGetMemberList = selectorFamily({
               방어력: c.c[5]?.v,
               통찰: c.c[6]?.v,
               정신력: c.c[7]?.v,
-              스킬: [c.c[8]?.v, c.c[9]?.v, c.c[10]?.v, c.c[22]?.v].filter(
+              스킬: [c.c[8]?.v, c.c[9]?.v, c.c[10]?.v, c.c[22]?.v,c.c[28]?.v].filter(
                 (i) => !!i
               ),
               한마디: c.c[11]?.v,
@@ -93,6 +93,7 @@ export const asyncGetMemberList = selectorFamily({
               key_name: c.c[26]?.v,
               지난: c.c[23]?.v,
               마키나: c.c[24]?.v,
+              machina_image : c.c[29]?.v,
               관계: [],
             },
           ],

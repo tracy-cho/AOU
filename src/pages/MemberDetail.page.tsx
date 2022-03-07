@@ -15,15 +15,10 @@ export type MemberDetailPageProps = {
     cx?: string;
 };
 const useMember = (name: string) => {
-    const {state, contents} = useRecoilValueLoadable(
-        asyncGetMemberList({page: 1})
+    const { state, contents } = useRecoilValueLoadable(
+        asyncGetMemberList({ page: 1 })
     );
-    const relative = useRecoilValueLoadable(
-        asyncGetRelative({
-            name: state === "hasValue" ? contents.find((i:any)=>name === i.key_name).이름  : "",
-            page: 1,
-        })
-    );
+    const relative = useRecoilValueLoadable(asyncGetRelative({ name, page: 0 }));
     if (state === "hasValue" && relative.state === "hasValue") {
         const a = {
             state,
@@ -33,7 +28,13 @@ const useMember = (name: string) => {
                     if (idx === 0) return a;
                     if (!!c) {
                         if (!c.v) return a;
-                        a.push({name: relative.contents?.nameList[idx].v, text: c.v});
+                        a.push({
+                            display_name: contents.find(
+                                (i: memberType) => i.key_name === relative.contents?.nameList[idx].v
+                            )?.이름,
+                            name: relative.contents?.nameList[idx].v,
+                            text: c.v,
+                        });
                     }
                     return a;
                 }, []),
@@ -41,9 +42,8 @@ const useMember = (name: string) => {
         };
         return a;
     }
-    return {state: "hasError", contents: {}};
+    return { state: "hasError", contents: {} };
 };
-
 const type = (type: string) => {
     switch (type) {
         case "옵세르보":
@@ -196,9 +196,9 @@ export const MemberDetailPage: React.FC<MemberDetailPageProps> = ({
                 </MemberGutter>
                 <MemberGutter text={"관계"} cx={`${type(contents.계통)} l`}>
                     {contents.관계.map(
-                        ({name, text}: { name: string; text: string }) => (
+                        ({name,display_name, text}: { name: string;display_name:string; text: string }) => (
                             <div className={"rel-wrapper"} key={name}>
-                                <Link to={`/member/${encodeURIComponent(name)}`}>[{name}]</Link>
+                                <Link to={`/member-2/${encodeURIComponent(name)}`}>[{display_name}]</Link>
                                 <p> {text}</p>
                             </div>
                         )

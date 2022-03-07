@@ -6,6 +6,7 @@ import {
   CharacterGuidePage,
   MainPage,
   MemberDetail1Page,
+  MemberDetail2Page,
   MemberDetailPage,
   MemberPage,
   NoticePage,
@@ -27,8 +28,9 @@ const App = () => {
         <Route path={"/qna"} element={<QnaPage />} />
         <Route path={"/notice"} element={<NoticePage />} />
         <Route path={"/member"} element={<MemberPage />} />
+        <Route path={"/member-2/:name"} element={<MemberDetailPage />} />
         <Route path={"/member-1/:name"} element={<MemberDetail1Page />} />
-        <Route path={"/member/:name"} element={<MemberDetailPage />} />
+        <Route path={"/member/:name"} element={<MemberDetail2Page />} />
         <Route path={"/system"} element={<SystemPage />} />
         <Route path={"/world"} element={<WorldPage />} />
         <Route path={"/shop"} element={<ShopPage />} />
