@@ -225,6 +225,7 @@ export const MemberDetail2Page: React.FC<MemberDetail2PageProps> = ({
               </div>
             )
           )}
+          <div className={'bottom-text'}>{contents.bottom}</div>
         </MemberGutter>
       </section>
     </main>
