@@ -95,6 +95,7 @@ export const asyncGetMemberList = selectorFamily({
               마키나: c.c[24]?.v,
               machina_image : c.c[29]?.v,
               관계: [],
+              bottom : c.c[30]?.v
             },
           ],
           [] as memberType[]
