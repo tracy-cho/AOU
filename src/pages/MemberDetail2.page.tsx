@@ -18,7 +18,7 @@ const useMember = (name: string) => {
   const { state, contents } = useRecoilValueLoadable(
     asyncGetMemberList({ page: 2 })
   );
-  const relative = useRecoilValueLoadable(asyncGetRelative({ name, page: 0 }));
+  const relative = useRecoilValueLoadable(asyncGetRelative({ name, page: 2 }));
   if (state === "hasValue" && relative.state === "hasValue") {
     const a = {
       state,

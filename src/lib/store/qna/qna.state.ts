@@ -110,7 +110,6 @@ export const asyncGetRelative = selectorFamily({
   get:
     ({ name, page }: { name: string; page: number }) =>
     async ({ get }) => {
-    console.log(name);
       if (name === "") return;
       try {
         get(updateAll);
