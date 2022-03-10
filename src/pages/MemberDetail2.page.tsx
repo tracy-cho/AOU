@@ -107,7 +107,7 @@ export const MemberDetail2Page: React.FC<MemberDetail2PageProps> = ({
           "<span>{contents.한마디}</span>"
         </div>
         <div className="info">
-          <span>{contents.소속}</span>|<span>{contents.나이} 세</span>|
+          <span>{contents.소속}</span>|<span>{contents.나이} </span>|
           <span>{contents.성별}</span>|<span>{contents.키} cm</span>
         </div>
 
