@@ -16,7 +16,7 @@ export type MemberDetail1PageProps = {
 };
 const useMember = (name: string) => {
   const { state, contents } = useRecoilValueLoadable(
-    asyncGetMemberList({ page: 0 })
+      asyncGetMemberList({ page: 0 })
   );
   const relative = useRecoilValueLoadable(asyncGetRelative({ name, page: 0 }));
   if (state === "hasValue" && relative.state === "hasValue") {
@@ -28,7 +28,14 @@ const useMember = (name: string) => {
           if (idx === 0) return a;
           if (!!c) {
             if (!c.v) return a;
-            a.push({ name: relative.contents?.nameList[idx].v, text: c.v });
+            a.push({
+              display_name: contents.find(
+                  (i: memberType) =>
+                      i.key_name === relative.contents?.nameList[idx].v
+              )?.code_name,
+              name: relative.contents?.nameList[idx].v,
+              text: c.v,
+            });
           }
           return a;
         }, []),
@@ -67,7 +74,7 @@ export const MemberDetail1Page: React.FC<MemberDetail1PageProps> = ({
   console.log(state, contents);
   return (
     <main className={`MemberDetailPage ${cx}`}>
-     <MemberTab page={0}  name={contents.key_name}/>
+      <MemberTab page={0} name={contents.key_name} />
       <section className={`short-info ${type(contents.계통)}`}>
         <div className="name">
           <div className="left">{contents.code_name}</div>
@@ -189,7 +196,9 @@ export const MemberDetail1Page: React.FC<MemberDetail1PageProps> = ({
           {contents.관계.map(
             ({ name, text }: { name: string; text: string }) => (
               <div className={"rel-wrapper"} key={name}>
-                <Link to={`/member-1/${encodeURIComponent(name)}`}>[{name}]</Link>
+                <Link to={`/member-1/${encodeURIComponent(name)}`}>
+                  [{name}]
+                </Link>
                 <p> {text}</p>
               </div>
             )

@@ -18,7 +18,7 @@ const useMember = (name: string) => {
     const { state, contents } = useRecoilValueLoadable(
         asyncGetMemberList({ page: 1 })
     );
-    const relative = useRecoilValueLoadable(asyncGetRelative({ name, page: 0 }));
+    const relative = useRecoilValueLoadable(asyncGetRelative({ name, page: 1 }));
     if (state === "hasValue" && relative.state === "hasValue") {
         const a = {
             state,
@@ -30,8 +30,9 @@ const useMember = (name: string) => {
                         if (!c.v) return a;
                         a.push({
                             display_name: contents.find(
-                                (i: memberType) => i.key_name === relative.contents?.nameList[idx].v
-                            )?.이름,
+                                (i: memberType) =>
+                                    i.key_name === relative.contents?.nameList[idx].v
+                            )?.code_name,
                             name: relative.contents?.nameList[idx].v,
                             text: c.v,
                         });
@@ -40,6 +41,7 @@ const useMember = (name: string) => {
                 }, []),
             },
         };
+        console.log(a);
         return a;
     }
     return { state: "hasError", contents: {} };
