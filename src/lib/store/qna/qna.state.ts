@@ -120,7 +120,6 @@ export const asyncGetRelative = selectorFamily({
           ""
         );
         const table = JSON.parse(a.replace(");", "")).table;
-        console.log(table.rows);
         return {
           nameList: table.rows[0].c,
           desc: table.rows.find((i: any) => i.c[0]?.v === name).c,

@@ -7,6 +7,7 @@ import {
   MainPage,
   MemberDetail1Page,
   MemberDetail2Page,
+  MemberDetail3Page,
   MemberDetailPage,
   MemberPage,
   NoticePage,
@@ -30,7 +31,8 @@ const App = () => {
         <Route path={"/member"} element={<MemberPage />} />
         <Route path={"/member-2/:name"} element={<MemberDetailPage />} />
         <Route path={"/member-1/:name"} element={<MemberDetail1Page />} />
-        <Route path={"/member/:name"} element={<MemberDetail2Page />} />
+        <Route path={"/member-3/:name"} element={<MemberDetail2Page />} />
+        <Route path={"/member/:name"} element={<MemberDetail3Page />} />
         <Route path={"/system"} element={<SystemPage />} />
         <Route path={"/world"} element={<WorldPage />} />
         <Route path={"/shop"} element={<ShopPage />} />

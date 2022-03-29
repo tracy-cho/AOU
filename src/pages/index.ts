@@ -9,4 +9,5 @@ export * from "./CharacterGuide.page";
 export * from "./MemberDetail.page";
 export * from "./MemberDetail1.page";
 export * from "./MemberDetail2.page";
+export * from "./MemberDetail3.page";
 export * from "./Shop.page";
