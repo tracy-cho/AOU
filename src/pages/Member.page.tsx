@@ -77,6 +77,15 @@ export const MemberPage: React.FC<MemberPageProps> = ({ cx = "" }) => {
           <div className="list-wrapper">
             <div className="bg u" />
             <ul className="name-list">
+              {
+                contents.운트라.length === 0 &&
+                <>
+                  <li className={'skeleton'}/>
+                  <li className={'skeleton'}/>
+                  <li className={'skeleton'}/>
+                  <li className={'skeleton'}/>
+                </>
+              }
               {contents.운트라.map(
                 (
                   i: {
@@ -111,6 +120,14 @@ export const MemberPage: React.FC<MemberPageProps> = ({ cx = "" }) => {
           <div className="list-wrapper">
             <div className="bg d" />
             <ul className="name-list">
+              {
+                contents.디솔루티.length === 0 &&
+                    <>
+                      <li className={'skeleton'}/>
+                      <li className={'skeleton'}/>
+                      <li className={'skeleton'}/>
+                    </>
+              }
               {contents.디솔루티.map(
                 (
                   i: {
@@ -145,6 +162,13 @@ export const MemberPage: React.FC<MemberPageProps> = ({ cx = "" }) => {
           <div className="list-wrapper">
             <div className="bg r" />
             <ul className="name-list">
+              {
+                contents.레크레아티.length === 0 &&
+                <>
+                  <li className={'skeleton'}/>
+                  <li className={'skeleton'}/>
+                </>
+              }
               {contents.레크레아티.map(
                 (
                   i: {
@@ -179,6 +203,12 @@ export const MemberPage: React.FC<MemberPageProps> = ({ cx = "" }) => {
           <div className="list-wrapper">
             <div className="bg o" />
             <ul className="name-list">
+              {
+                contents.옵세르보.length === 0 &&
+                <>
+                  <li className={'skeleton'}/>
+                </>
+              }
               {contents.옵세르보.map(
                 (
                   i: {
