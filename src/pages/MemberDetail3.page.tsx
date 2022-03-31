@@ -5,7 +5,7 @@ import { useRecoilValueLoadable } from "recoil";
 import {
   asyncGetMemberList,
   asyncGetRelative,
-  memberType,
+  memberType
 } from "../lib/store/qna";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MemberGutter } from "components/atom/MemberGutter";
@@ -33,12 +33,12 @@ const useMember = (name: string) => {
                 (i: memberType) => i.key_name === relative.contents?.nameList[idx].v
               )?.code_name,
               name: relative.contents?.nameList[idx].v,
-              text: c.v,
+              text: c.v
             });
           }
           return a;
-        }, []),
-      },
+        }, [])
+      }
     };
     return a;
   }
@@ -61,8 +61,8 @@ const type = (type: string) => {
 };
 
 export const MemberDetail3Page: React.FC<MemberDetail3PageProps> = ({
-  cx = "",
-}) => {
+                                                                      cx = ""
+                                                                    }) => {
   const location = useLocation();
   const { state, contents } = useMember(
     decodeURIComponent(location.pathname.split("/")[2])
@@ -167,16 +167,19 @@ export const MemberDetail3Page: React.FC<MemberDetail3PageProps> = ({
       </section>
       <section className="desc">
         <MemberGutter text={"외형"} cx={type(contents.계통)}>
+          {contents.mov && <video style={{maxWidth:'1440px',maxHeight:"1080px",width:"100%"}} autoPlay muted loop>
+            <source src={`https://cdn.star-light.space/412.mp4`} type="video/mp4" />
+          </video>}
           {contents.이미지 && (
-              <div className={"image-wrapper"}>
-                {JSON.parse(contents.이미지).map((i: string) => (
-                    <img
-                        src={`https://cdn.star-light.space/${i}.png`}
-                        key={i}
-                        alt=""
-                    />
-                ))}
-              </div>
+            <div className={"image-wrapper"}>
+              {JSON.parse(contents.이미지).map((i: string) => (
+                <img
+                  src={`https://cdn.star-light.space/${i}.png`}
+                  key={i}
+                  alt=""
+                />
+              ))}
+            </div>
           )}
           {contents.외형}
         </MemberGutter>{" "}
@@ -191,15 +194,15 @@ export const MemberDetail3Page: React.FC<MemberDetail3PageProps> = ({
         </MemberGutter>{" "}
         <MemberGutter text={"마키나"} cx={`${type(contents.계통)} l`}>
           {contents.machina_image && (
-              <div className={"image-wrapper"}>
-                {JSON.parse(contents.machina_image).map((i: string) => (
-                    <img
-                        src={`https://cdn.star-light.space/${i}.png`}
-                        key={i}
-                        alt=""
-                    />
-                ))}
-              </div>
+            <div className={"image-wrapper"}>
+              {JSON.parse(contents.machina_image).map((i: string) => (
+                <img
+                  src={`https://cdn.star-light.space/${i}.png`}
+                  key={i}
+                  alt=""
+                />
+              ))}
+            </div>
           )}
           {contents.마키나}
         </MemberGutter>
@@ -209,10 +212,10 @@ export const MemberDetail3Page: React.FC<MemberDetail3PageProps> = ({
         <MemberGutter text={"관계"} cx={`${type(contents.계통)} l`}>
           {contents.관계.map(
             ({
-              name,
-              text,
-              display_name,
-            }: {
+               name,
+               text,
+               display_name
+             }: {
               name: string;
               display_name: string;
               text: string;
@@ -225,7 +228,7 @@ export const MemberDetail3Page: React.FC<MemberDetail3PageProps> = ({
               </div>
             )
           )}
-          <div className={'bottom-text'}>{contents.bottom}</div>
+          <div className={"bottom-text"}>{contents.bottom}</div>
         </MemberGutter>
       </section>
     </main>
