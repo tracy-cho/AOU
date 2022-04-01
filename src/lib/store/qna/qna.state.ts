@@ -75,7 +75,7 @@ export const asyncGetMemberList = selectorFamily({
               방어력: c.c[5]?.v,
               통찰: c.c[6]?.v,
               정신력: c.c[7]?.v,
-              스킬: [c.c[8]?.v, c.c[9]?.v, c.c[10]?.v, c.c[22]?.v,c.c[28]?.v].filter(
+              스킬: [c.c[8]?.v, c.c[9]?.v, c.c[10]?.v, c.c[22]?.v].filter(
                 (i) => !!i
               ),
               한마디: c.c[11]?.v,
